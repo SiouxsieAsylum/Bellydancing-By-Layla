@@ -105,7 +105,7 @@ to fix the background picture and header. Background picture is deliberately
 /*headings are NOT responsize and require a different (likely horizontal) layout on smaller media sizes*/
 #heading {
 	overflow: hidden;
-	margin-top: -60vh;
+	margin-top: -50vh;
 	margin-left: -50vw;
  	height: 80vh;
  	background-color: rgb(56, 15, 54);
