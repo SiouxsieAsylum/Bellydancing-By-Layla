@@ -1,0 +1,180 @@
+/*margin 0 and background color to ensure no white when scrolling out of bounds*/
+body{
+	margin: 0;
+	background-color: rgb(12, 0, 12);
+
+}
+
+h1, h2{
+	color: white;
+	text-shadow: 0px 0px 10px rgb(235, 124, 255);
+	font-size: 300px;
+	z-index: 1;
+	position: absolute;
+	margin-left: 25vw;
+	font-family: 'Lobster Two', cursive;
+}
+
+h2{
+	font-size: 100px;
+	margin-top: 75vh;
+	margin-left: 10vw;
+}
+
+/*all H3s are the listing titles and have a purple background */
+h3 {
+	color: white;
+	font-family: 'Cinzel', serif;
+	margin-top: 0;
+	background-color: rgb(123, 78, 135);
+	font-size: 30px;
+	line-height: 5vh;
+	padding: 2vw;
+		}
+
+/*content is any and all text in a box */
+.content{
+	width: 60vw;
+	border-radius: 40px;
+	position: absolute;
+	z-index: 1;
+	color: rgb(239, 227, 252);
+	font-size: 20px;
+}
+
+.content p{
+	padding: 1vw;
+	font-family: 'Cinzel', serif;
+}
+
+/*navbar is fixed, which is only really important for classes.html*/
+#navbar{
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 55px;
+	background-color: rgba(76, 64, 79, 0.5);
+}
+
+#navbar ul{
+	list-style-type: none;
+}
+
+
+#navbar li {
+	margin-top: 0;
+	line-height: 0;
+	display: inline-block;
+	padding: 0 4vw 18px 0;
+	font-family: 'Cinzel', serif;
+}
+
+/*all anchor tags are grey unless otherwise indicated*/
+a {
+	text-decoration: none;
+	color: rgb(217, 217, 217);
+}
+
+#navbar a {
+	font-size: 18px;
+}
+
+/*nav bar coloring is white to give us a break on the purple*/
+#navbar a:hover {
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+/*the container is unclickable and has no bearing on the layout except 
+to fix the background picture and header. Background picture is deliberately
+ not covering the whole background to give a split effect. 
+*/
+.container {
+	z-index: -9999;
+	background-image: url(../images/jay-castor-lotus-copy-copy.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 -90vh;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+}
+
+/*diagonal div to the left*/
+/*headings are NOT responsize and require a different (likely horizontal) layout on smaller media sizes*/
+#heading {
+	overflow: hidden;
+	margin-top: -60vh;
+	margin-left: -50vw;
+ 	height: 80vh;
+ 	background-color: rgb(56, 15, 54);
+  	transform: rotate(-60deg);
+  	border-bottom: 5px outset rgb(123, 78, 135);
+			}
+
+/*default sizing and rotation of picture inside header*/
+#heading img {
+	height: 150vh;
+	width: auto;
+  	transform: rotate(60deg);
+}
+
+
+/*all buttons have the same purple glow hover effect*/
+button{
+	transition: .25s;
+}
+
+button:hover{
+	background-color: rgb(247, 204, 255);
+	box-shadow: 0px 0px 5px 5px rgb(235, 124, 255);
+}
+
+/*remove the blue outline when selected*/
+button:focus{
+	outline: 0;
+}
+
+/*default for all modals*/
+.blackOverlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0,0,0,0.8);
+		z-index: 99999;
+		opacity: 0;
+		transition: opacity 300ms ease-in;
+		pointer-events: none;
+	}
+/*modal launch*/
+	.blackOverlay:target {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	
+/*modal close button*/
+	.close {
+		color: rgb(232, 176, 229);
+		line-height: 10px;
+		text-align: center;
+		font-weight: bold;
+		text-decoration: none;
+	}
+/*hover for modal close button*/
+	.close:hover {
+		color: white;
+		text-shadow: 0px 0px 5px rgb(255, 255, 255);
+
+	}
+/*center the content of the div inside the modal*/
+	.formatting {
+		/*margin-top: 1vh;*/
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		}
+
+
