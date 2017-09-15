@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Bellydancing by Layla</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Cinzel" rel="stylesheet">
+
+<!-- Unsuccessful attempt to place modalLaunch() externally -->
+	<!-- <script type="text/javascript" src="scripts.js"></script> -->
+
+<style>
+/*flexed to center #main-image and text*/
+		.container {
+			display: flex;
+			flex-direction: column;
+		}
+/*because #main-image kept popping behind the header*/
+		#heading{
+			z-index: -1;
+		}
+
+		#heading img {
+		width: 150vh;
+		padding-top: 30vh;
+		padding-right: 40vw;
+
+	
+		}
+/*image of layla centered in the */
+		#main-image {
+			height: 90vh;
+			width: 700px;
+			align-self: center;
+			bottom: 1vh;
+			background-position: -10vw 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-image: url(images/transparent/transparent-vest.png);
+			transition-delay: 2s;
+		}
+
+/*h1, h2, and image of layla*/
+		#main-layla, #professional, #main-image {
+			opacity: 0;
+			transition: 2s;
+		}
+			/*h1*/
+		#main-layla {
+			transition-delay: 4s;
+		}
+			/*h2*/
+		#professional {
+			transition-delay: 7s;
+		}
+
+
+
+</style>
+</head>
+<body onload="modalLaunch()">
+<!-- nav sidebar -->
+<div id = "navbar">
+
+<!-- Home is index.html#close so modal doesn't play-->
+	<ul>
+		<a href="index.html#close"><li>Home</li></a>
+		<a href="pages/history.html"><li>About Me</li></a>
+		<a href="pages/shows.html"><li>Upcoming Shows</li></a>
+		<a href="pages/classes.html"><li>Classes</li></a>
+		<a href="pages/the-boss.html"><li>The Legend of Serena Wilson</li></a>
+		<a href="pages/costuming.html"><li>Costuming for Sale</li></a>
+		<a href="pages/contact.html"><li>Contact Me</li></a>
+	</ul>
+</div>
+
+<div class="container">
+	<div id="heading">
+		<img src="images/tapestry.jpg">
+	</div>
+
+	<div id="main-image"></div>
+</div>
+
+
+
+<h1 id="main-layla">Layla</h1>
+<h2 id="professional">Professional Bellydance Artist</h2>
+
+
+
+<!-- Modal landing page-->
+
+	<div id="video" class="blackOverlay">
+	<!-- onclick both stops the video and triggers opacity on #main-image and text -->
+	<span><a href="#close" class="close" onclick="pauseVid(); opacUp()">X</a></span>
+      <div class="formatting"> 
+      
+			<video id="laylaVideo" width="1000" height="750" controls autoplay>
+				<source src="media/cruella-de-ville.mp4" type="video/mp4">
+			</video>
+	</div>
+  </div>
+
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+
+  <script>
+  	
+  var exOut = document.getElementsByClassName("close")[0];
+  var laylaVideo = document.getElementById("laylaVideo");
+
+  var pic = document.getElementById("main-image");
+  var layla = document.getElementById("main-layla");
+  var pro = document.getElementById("professional");
+ 
+ //adapeted from https://stackoverflow.com/questions/7696651/jump-to-a-element-automatically-on-page-load
+  function modalLaunch(){
+  	if(!document.location.hash){
+  		document.location.hash = "video";
+
+  	} else if (document.location.hash = "close"){
+  		pauseVid();
+  	}
+  }
+
+  function pauseVid(){
+  	laylaVideo.pause();
+  	pic.style.opacity="1";
+  	layla.style.opacity="1";
+  	pro.style.opacity="1";
+
+  }
+  	
+</script> 
+</body>
+</html>
