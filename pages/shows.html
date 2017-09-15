@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Cinzel" rel="stylesheet">
+
+<!-- unsuccessful attempt to place code externally in scripts.js  -->
+
+<!-- 	<script type="text/javascript" src="scripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+	<style>
+	/*radial gradient for a subtle curve to the black and white behind the photo*/
+	#heading {
+		background: radial-gradient(circle, rgb(0,0,0) 30%, rgb(255,255,255));
+		background-position: -80vh -80vw;
+	}
+
+/*transparent padding right and bottom to align within the diagonal div*/
+	#heading img {
+		height: 100vh;
+		width: auto;
+  		padding-bottom: 60vh;
+  		padding-right: 10vh;
+	}
+
+	h1 {
+		font-size: 200px;
+		margin-top: 3vh;
+		margin-bottom: 0;
+		right: 5vh;
+	}
+
+/*events-container is NOT container class bc container class just handles the background and has a specific purpose. Not all containers are created equal. */
+
+/*events container defines allows for positioning and the flexing of the different .event divs */
+	#events-container {
+		position: relative;
+		width: 90vw;
+		display: flex;
+		justify-content: space-around;
+		margin-top: 35vh;
+		margin-left: 5vw;
+		padding-bottom: 0;
+		border-top: 5px double white;
+	}
+
+	.event {
+		flex: 1;
+		padding-left: 5vh;
+	}
+
+/*so users know they can click on the headings*/
+	.top{
+		cursor: pointer;
+	}
+/*mini-headings are h3s with smaller size and text aligned in the center*/
+	.mini-heading {
+		padding:0;
+		font-size: 15px;
+		margin: 0;
+		text-align: center;
+		transition: .5s;
+	}
+
+/*.bottoms are mini-headings that appear when .top is clicked. z-index1 to appear over the thumbnail picture*/
+	.bottom {
+		z-index: 1;
+		opacity:0;
+
+
+	}
+
+/*does most of the heavy lifting in deciding the size of the .event divs*/
+	.thumbnail {
+		z-index: -1;
+		margin: 0;
+		height: 20vh;
+		overflow-x: hidden;
+		background-size: cover;
+		transition: .5s;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+/*.active just means visible*/
+	.active {
+		opacity:1;
+		pointer-events: auto;
+	}
+
+/*all different .thumbnail div backgrounds*/
+	#hawanim{
+		background-image: url(../images/layla-events-hawanim-nights.jpg);
+	}
+
+	#summer{
+		background-image: url(../images/layla-events-donna-summer.jpg);
+	}
+
+	#raks{
+		background-image: url(../images/layla-events-raq-cairo.jpg);
+	}
+
+/*purple <section> that toggles in and out when you click on the .thumbnail*/
+	section {
+		height: 29vh;
+		width: 90vw;
+		margin-top: .5vh;
+		margin-left: 5vw;
+		padding: 1vw;
+		overflow: hidden;
+		background-color: rgb(123, 78, 135);
+		color: white;
+		display: none;
+	}
+/* <section> h3 has no background color*/
+	section h3 {
+		padding: 0;
+	}
+/*defines the width of the descriptor text in the <section> so it doesn't overlap the photo*/
+	#p-tag {
+		width: 40vw;
+		height:auto;
+
+	}
+/*another "thumbnail" without actually being a thumbnail. Inside the <section>*/
+	#flyer {
+		margin-top: -9vh;
+		height: 30vh;
+		width: auto;
+		background-color: rgb(203, 180, 237);
+		float: right;
+	}
+
+/*button background matches the <section> background.*/
+	button {
+		background-color: rgb(123, 78, 135);
+		height: 5vh;
+		width: 5vw;
+		border: 5px solid white;
+		color: white;
+		font-size: 2vh;
+	}
+/*"click to expand" inside of each .thumbnail. Launches the modal of each flyer*/
+	span {
+		background-color: rgba(34, 35, 35, 0.5);
+	}
+
+/*margin and sizing of the more oddly shaped flyers in the modals*/
+/*commented for compatibility */
+
+	#summerModal img{
+		margin-top: 20vh;
+	}
+
+/*commented for compatibility */
+	#raksModal img{
+		margin-top: 10vh;
+		width: 100vw;
+		height: auto;
+	}
+ 
+	</style>
+
+
+
+</head>
+<body onload="dropdownExpand()">
+
+<!-- Home is index#close so modal doesn't play -->
+<div id = "navbar">
+	<ul>
+		<a href="../index.html#close"><li>Home</li></a>
+		<a href="history.html"><li>About Me</li></a>
+		<a href="shows.html"><li>Upcoming Shows</li></a>
+		<a href="classes.html"><li>Classes</li></a>
+		<a href="the-boss.html"><li>The Legend of Serena Wilson</li></a>
+		<a href="costuming.html"><li>Costuming for Sale</li></a>
+		<a href="contact.html"><li>Contact Me</li></a>
+	</ul>
+</div>
+
+
+<!-- diagonal div with image inside, all inside a fixed background -->
+<div class="container">
+<h1>Events</h1>
+	<div id="heading">
+		<img src="../images/transparent/transparent-cruella-copy.png">
+	</div>
+</div>
+
+
+
+<div id="events-container">
+
+<!-- event thumbnail with headings -->
+<!-- Hawanim Nights -->
+	<div class = "event" >
+		<h3 class="mini-heading top" >Hawanim Nights</h3>
+		<div class="thumbnail" id="hawanim">
+			<span><a href="#hawanimModal" >Click to expand</a></span>
+		</div>
+		<h3 class="mini-heading bottom">September 9th 2017</h3>
+	</div>
+
+<!-- event thumbnail with headings -->
+<!-- Donna Summer Tribute -->
+	<div class = "event">
+		<h3 class="mini-heading top">Donna Summer Tribute</h3>
+		<div class="thumbnail" id="summer">
+			<span><a href="#summerModal" >Click to expand</a></span>
+		</div>
+		<h3 class="mini-heading bottom">October 8th 2017</h3>
+	</div>
+
+
+<!-- event thumbnail with headings -->
+<!-- NYC Cairo Raks -->
+	<div class = "event">
+		<h3 class="mini-heading top">5th Annual NYC Cairo Raks</h3>
+		<div class="thumbnail" id="raks">
+			<span><a href="#raksModal">Click to expand</a></span>
+		</div>
+		<h3 class="mini-heading bottom">April 19th-22nd 2018></h3>
+	</div>
+
+</div>
+
+<!-- section that toggles in and out when the .thumbnail is pressed -->
+	<section>
+		<!-- title -->
+		<h3 id="title-and-price">Filler Title</h3>
+		<!-- flyer photo, floated to the right -->
+		<img id="flyer" src="">
+		<!-- Address of show -->
+		<p id="address">Filler Address</p>
+		<!-- descriptor text -->
+		<div id = "p-tag"><p id="text">Filler Text</p></div>
+
+		<!-- RSVP -->
+		<a href="https://www.eventbrite.com/"><button>RSVP</button></a>
+	</section>
+
+<!-- hawanim nights modal -->
+<div id="hawanimModal" class="blackOverlay">
+	<span><a href="#close" class="close">X</a></span>
+      <div class="formatting">
+      		<img src="../images/layla-events-hawanim-nights.jpg">
+		</div>
+  </div>
+
+<!-- Donna Summer Tribute Modal -->
+<div id="summerModal" class="blackOverlay">
+	<span><a href="#close" class="close">X</a></span>
+      <div class="formatting">
+      		<img src="../images/layla-events-donna-summer.jpg">
+			
+		</div>
+  </div>
+
+
+<!-- 5th annual NYC Cairo Raks flyer modal -->
+<div id="raksModal" class="blackOverlay">
+	<span><a href="#close" class="close">X</a></span>
+      <div class="formatting">
+      		<img src="../images/layla-events-raq-cairo.jpg">
+		</div>
+  </div>
+
+<script type="text/javascript" src="../scripts/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+var names = Array.from(document.getElementsByClassName("top"));
+var thumbnails = Array.from(document.getElementsByClassName("thumbnail"));
+var dates = Array.from(document.getElementsByClassName("bottom"));
+
+var hawanimNightsHeading = "Hawanim Nights at BellyDance America, $10";
+var hawanimNightsAddress = "65 W 37th St #203, New York, NY 10018";
+var hawanimNightsText = "Bellydance America presents our bi-weekly Hawanim Nights! Every other Saturday at 8pm. Drinks and refreshments will be available, live music and beautiful student performances. Come support our lovely ladies! ";
+
+var summerHeading ="5th Year Donna Summer Tribute at Jebon, $15";
+var summerAddress="15 St Marks Pl, New York, NY 10003";
+var summerText="Save the date, my peoples! This year Disco Halloween is serving up a side of Donna! WOOT WOOT and DOUBLE WOOT! This flyer was edited by vivdesigns! A portion of the proceeds of this show will be donated to help the Houston flood victims.";
+
+var raqsHeading="5th Annual NYC Cairo Raks at the Skyline Hotel, TBD";
+var raqsAddress="725 10th Avenue New York, NY 10018";
+var raqsText="Mohamed Shahin and Bellydance America present the 5th Annual NYC Cairo Raks event! Details soon to follow, but register now!"
+
+//getting children of a div by classname adapted from https://stackoverflow.com/questions/12166753/how-to-get-child-element-by-class-name
+
+// javascript to expose the thumbnail picture, "click me" modal launch, and to toggle the <section> and set the text. 
+function dropdownExpand(){
+	for(let n = 0; n < names.length; n++) {
+	// console.log(dates[n].style.width);
+
+		names[n].addEventListener("click", function(){
+
+				thumbnails[n].classList.toggle("active");
+				dates[n].classList.toggle("active");
+
+				for (let m = 0; m < names.length; m++){
+					if (n !== m){
+						names[m].classList.remove("active");
+						thumbnails[m].classList.remove("active");
+						dates[m].classList.remove("active");
+					}
+				}
+
+		});
+
+
+// jquery to establish and save whether or not a thumbnail was clicked. If clicked an even number of times, section toggles back in and the particular text is no longer set in the <section>
+
+		var i = 0;
+		var j = 0;
+		var k = 0;
+
+		$("#hawanim").click(function(){
+			i++;
+			if (i % 2 != 0){$(this).data("clicked", true);}
+			else {$(this).data("clicked", false);}
+		})
+
+		$("#summer").click(function(){
+			j++;
+			if (j % 2 != 0){$(this).data("clicked", true);}
+			else {$(this).data("clicked", false);}
+		})
+
+		$("#raks").click(function(){
+			k++;
+			if (k % 2 != 0){$(this).data("clicked", true);}
+			else {$(this).data("clicked", false);}
+		})
+
+// sets the contents of the section as the respective information on click.
+		thumbnails[n].addEventListener("click", function(){
+			$(document).ready(function(){
+            	$("section").slideToggle("slow");
+
+            		if($("#hawanim").data('clicked')){
+						$("#title-and-price").html(hawanimNightsHeading);
+            			$("#address").html(hawanimNightsAddress);
+            			$("#text").html(hawanimNightsText);
+            			$("#flyer").attr("src","../images/layla-events-hawanim-nights.jpg");
+            		}
+
+            		if ($("#summer").data('clicked')) {
+            			$("#title-and-price").html(summerHeading);
+            			$("#address").html(summerAddress);
+            			$("#text").html(summerText);
+            			$("#flyer").attr("src","../images/layla-events-donna-summer.jpg");
+            		}
+
+            		if ($("#raks").data('clicked')) {
+            			$("#title-and-price").html(raqsHeading);
+            			$("#address").html(raqsAddress);
+            			$("#text").html(raqsText);
+            			$("#flyer").attr("src","../images/layla-events-raq-cairo.jpg");
+					}
+            		
+
+       		});
+ 
+		});
+	}
+}
+
+</script>
+
+</body>
+</html>

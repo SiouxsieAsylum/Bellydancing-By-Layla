@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>In Memorium</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Cinzel" rel="stylesheet">
+
+		<style>
+		body {
+			background-image: url(../images/serena-dancing.gif);
+			background-size: 80%;
+			background-position: 50% -10%;
+			background-repeat: no-repeat;
+		}
+		/*the video, the picture of serena and the heading will all fade in*/
+		.container, #vid, h1 {
+			opacity: 0;
+		}
+
+		/*background color to cover the gif in the background*/
+		.container {
+			display: flex;
+			flex-direction: column;
+			background-color: rgb(12, 0, 12);
+			background-image: url(../images/serena-tribute-two-pictures.jpg);
+			background-size: 75%;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: 2s;
+			transition-delay: 3s;
+			
+		}
+
+		h1 {
+			position: static;
+			text-align: center;
+			margin-left: 0;
+			font-size: 100px;
+			transition: 3s;
+			transition-delay: 7s;
+		}
+
+		#vid {
+			align-self: center;
+			border: 5px double white;
+			box-shadow: 0px 0px 20px rgb(228, 68, 255);
+			transition: 3s;
+			transition-delay: 10s;
+			color: black;
+		}
+		
+	</style>
+</head>
+
+<!-- body is gif of Serena dancing -->
+<body onload = "opacity()">
+
+
+<!-- Home page is index.html#close so modal doesn't play -->
+<div id = "navbar">
+	<ul>
+		<a href="../index.html#close"><li>Home</li></a>
+		<a href="history.html"><li>About Me</li></a>
+		<a href="shows.html"><li>Upcoming Shows</li></a>
+		<a href="classes.html"><li>Classes</li></a>
+		<a href="the-boss.html"><li>The Legend of Serena Wilson</li></a>
+		<a href="costuming.html"><li>Costuming for Sale</li></a>
+		<a href="contact.html"><li>Contact Me</li></a>
+	</ul>
+</div>
+
+<!-- split screen picture of Serena -->
+<div class="container" id="background"><div>
+
+	<h1 id="rememberance">Layla Remembers Serena Wilson</h1>
+</div>
+
+<video id="vid" width="800" height="450" controls>
+	<source src="../media/serena-tribute.mp4" type="video/mp4">
+</video>
+
+<!-- opacity is defined in external script -->
+<script type="text/javascript" src="../scripts/scripts.js"></script>
+</body>
+</html>

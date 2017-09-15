@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classes</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Cinzel" rel="stylesheet">
+
+<!-- unsuccessful attempt to place all jquery in the external file -->
+<!-- 	<script type="text/javascript" src="scripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+	<style>
+
+	#heading img {
+		padding-bottom: 50vh;
+		padding-right: 50vh;
+	}
+/* #calendar is the CONTAINER, -not- the actual table. */
+	#calendar {
+		width: 100vw
+		height: 100vh;
+		position: relative;
+		display: flex;
+		justify-content: space-around;
+		margin-top: 100vh;
+	}
+
+/*links that change which days are .in-session and smoothly scroll down*/
+	h2 {
+		color: rgb(247, 198, 255);
+		text-shadow: 0px 0px 10px rgb(228, 68, 255);
+		position: relative;
+		font-size: 50px;
+		margin: 0;
+	}
+
+	h2:hover{
+		color: white;
+		text-shadow: 0px 0px 10px rgb(235, 124, 255);
+	}
+
+/*links container is not container-class, just allows for some good-old flexin'*/
+	#links-container {
+		margin-top: 74vh;
+		padding: 2vw;
+		height: 100px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#links-container div {
+		margin-left: 2vh;
+	}
+
+/*THIS is the actual calendar, not the container. */
+	table, th, td {
+		color: rgb(65, 43, 73);
+		border: 5px double rgb(112, 47, 124);
+		padding: 4.4vh 3.3vh 4.4vh 3.3vh;
+		box-shadow: 0px 0px 10px rgb(219, 22, 255);
+		background-color: rgba(228, 196, 242, 0.5);
+		font-family: 'Cinzel', serif;
+
+	}
+
+	table {
+		border: 5px double white;
+		box-shadow: 0px 0px 10px rgb(235, 124, 255);
+		margin-bottom: 10vh;
+		margin-left: 10vw;
+		align-self: center;
+	}
+
+	th {
+		font-size: 5vh;
+		line-height: 1vh;
+		background-color: rgba(228, 196, 242, 0.8);
+	}
+
+	td {
+		font-size: 2vh;
+		line-height: 3vh;
+		background-color: rgba(228, 196, 242, 0.8);
+	}
+
+/*highlights the days of the week where class is in session */
+	.in-session {
+		border: 5px double rgb(235, 124, 255);
+		box-shadow: 0px 0px 10px rgb(235, 124, 255);
+		transition: 2s;
+	}
+
+/*demonstrates that the months are clickable*/
+	#month{
+		cursor: pointer;
+	}
+
+/*also demonstrates classes are clickable, does not have a front or back direction*/
+	#arrow {
+		position:absolute;
+		height: 100px;
+		width: 100px;
+		bottom: 10px;
+		right: 10px;
+	}
+/*anchor to top of page, meant to be unseeable*/
+	#top-of-page {
+		opacity: 0;
+	}
+/*flyer that follows cursor when .in-session is hovered over*/
+	#hoverFlyer {
+		position: absolute;
+		display: none;
+		height: 50vh;
+		width: 20vw;
+		border: 2px double rgb(235, 124, 255);
+		box-shadow: 0px 0px 10px rgb(235, 124, 255);
+		background-color: rgb(143, 127, 147);
+		color:rgba(205, 179, 211, 0.5);
+		font-size: 30px;
+		text-align: center
+	}
+
+	#hoverFlyer p {
+		margin-top: 20vh;
+	}
+
+	</style>
+
+</head>
+<body onload = "classAssignment()">
+<!-- using an anchor tag to define the top adapted from https://www.computerhope.com/issues/ch001475.htm -->
+<a name="top" id ="top-of-page">.</a>
+
+<!-- Home is index.html#close so modal does not play -->
+<div id = "navbar">
+	<ul>
+		<a href="../index.html#close"><li>Home</li></a>
+		<a href="history.html"><li>About Me</li></a>
+		<a href="shows.html"><li>Upcoming Shows</li></a>
+		<a href="classes.html"><li>Classes</li></a>
+		<a href="the-boss.html"><li>The Legend of Serena Wilson</li></a>
+		<a href="costuming.html"><li>Costuming for Sale</li></a>
+		<a href="contact.html"><li>Contact Me</li></a>
+
+	</ul>
+</div>
+
+<!-- diagonal div with rotated image inside fixed background -->
+<div class = "container">
+	<div id="heading">
+		<img src="../images/spin.gif">
+	</div>
+</div>
+
+<h1>Classes</h1>
+
+<!-- links to calendar -->
+<div id = "links-container">
+	<div>
+		<a href="#calendar"><h2 id = "beginner">Beginner</h2></a>
+	</div>
+	<div>
+		<a href="#calendar"><h2 id = "intermediate">Intermediate</h2></a>
+	</div>
+	<div>
+		<a href="#calendar"><h2 id = "advanced">Advanced</h2></a>
+	</div>
+	<div>
+		<h2 id = "workshops">Workshops</h2>
+	</div>
+</div>
+
+<!-- table calendar goes here -->
+<div id = "calendar">
+<table>
+	<th colspan="3">Weekly Classes</th><th id="month" colspan="4" onclick="pressBox()">&#10094;  January  &#10095;</th>
+
+	<tr><td>Sunday</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td></tr>
+	<tr><td>Sunday</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td></tr>
+	<tr><td>Sunday</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td></tr>
+	<tr><td>Sunday</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td></tr>
+</table>
+<!-- link to top of page (#top-of-page) -->
+<a href="#top"><img id="arrow" src="../images/arrow.png"></a>
+</div>
+
+<!-- div that only appears when an in-session day is hovered over -->
+<div id = "hoverFlyer"><p>Information to Follow!</p></div>
+
+
+
+<script type="text/javascript" src="../scripts/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+
+// adapted from https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click
+	$(document).ready(function(){
+		$("h2").click(function(){
+			var cal = $('#calendar').offset();
+			$('html,body').animate({
+				scrollTop: cal.top - 60}, 'slow');
+		});
+	});
+
+ </script> 
+
+</body>
+</html>

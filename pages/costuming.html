@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Costuming</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster+Two|Cinzel" rel="stylesheet">
+	<style>
+
+/*heading has a background image this time*/
+		#heading {
+			background-image: url(../images/background-design.jpg);
+			background-size: 75%;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+		}
+/*sizing and positioning of #header #img*/
+		#heading img {
+		height: 100vh;
+		width: auto;
+		padding-left: 20vw;
+		padding-top: 10vh;
+  		}
+
+/*formatting of links to each .slideshow*/
+		a h2 {
+		color: rgb(247, 198, 255);
+		text-shadow: 0px 0px 10px rgb(228, 68, 255);
+		position: relative;
+		font-size: 50px;
+		margin: 0;
+		}
+
+		a h2:hover{
+		color: white;
+		text-shadow: 0px 0px 10px rgb(235, 124, 255);
+		}	
+
+		#links-container {
+		margin-top: 4vh;
+		/*padding top keeps the back-to-top link from sticking directly to the top of the words*/
+		padding-top: 6vh;
+		height: 100px;
+		width: 100vw;
+		display: inline-flex;
+		justify-content: space-around;
+	}
+		#links-container div {
+			flex: 1;
+		}
+
+
+		#ads-container {
+			/*position: relative;*/
+			width: 100vw;
+			height: 400vh;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+
+		}
+/*contains .content .slideshow and h2s*/
+		.advertisement {
+			height: 80vh;
+			width: 90vw;
+			border-radius: 3px;
+			border: 5px double white;
+			background-color: rgba(219, 219, 219, 0.1);
+			box-shadow: inset 0px 0px 20px rgb(228, 68, 255), 0px 0px 20px rgb(228, 68, 255);
+			margin-top: 15vh;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.advertisement h2 {
+			margin-top: -90px;
+			margin-left: -15px;
+		}
+
+		.content {
+			background-color: rgba(219, 219, 219, 0.9);
+			color: rgb(123, 78, 135);
+			padding-top: 0;
+			border-radius: 0;
+			margin: 5vh;
+			height: 70vh;
+			width: 40vw;
+			position: relative;
+		}
+/*links to "contact layla"; links to "contact me" page*/
+		.content a {
+			color: rgb(58, 36, 63);
+		}
+
+		.content a:hover {
+			color: rgb(75, 46, 81);
+		}
+/*styling for button*/
+		button {
+			margin: 1vh 3vw 1vh;
+			padding: 1vh 3vw 1vh 3vw;
+			background-color: rgba(219, 219, 219, 0.2);
+			/*color: white;*/
+			color:rgb(123, 78, 135);
+			border: 10px solid white;
+			font-family: 'Cinzel', serif;
+			font-size: 20px;
+		}
+
+/*container for .slides*/
+		.slideshow {
+			display: flex;
+			flex-flow: row nowrap;
+			z-index: 1
+		}
+
+/*formatting for each div*/
+		.slides {
+			margin: 5vh;
+			height: 70vh;
+			width: 40vw;
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: 2;
+		}
+
+/*background images of each .slides*/
+		#teal-bra {
+			background-image: url(../images/costuming/teal-bra-belt.jpg);
+			background-position: 0 -9vh;
+		}
+		#purple-bra {
+			background-image: url(../images/costuming/purple-bra-belt.jpg);
+			background-position: 0 -9vh;
+		}
+
+		#teal-skirt {
+			background-image: url(../images/costuming/teal-skirt.jpg);
+			background-position: 0 -29vh;
+		}
+
+		#purple-skirt {
+			background-image: url(../images/costuming/purple-skirt.jpg);
+			background-position: 0 -45vh;
+		}
+
+		#multi-skirt {
+			background-image: url(../images/costuming/multi-rampi-skirt.jpg);
+			background-position: 0 -45vh;
+		}
+
+		#gold{
+			background-image: url(../images/costuming/gold-wings.jpg);
+
+		}
+
+		#white {
+			background-image: url(../images/costuming/layla-white-wings.jpg);
+
+		}
+
+		#black-dress {
+			background-image: url(../images/costuming/velour-black-beledi.jpg);
+			background-position: 0 -30vh;
+		}
+
+		#purple-dress {
+			background-image: url(../images/costuming/purple-beledi-front-copy.jpg);
+			background-position: 0 -15vh;
+		}
+
+		/*anchor to top of page*/
+		#arrow {
+			position:absolute;
+			height: 50px;
+			width: 50px;
+			bottom: 0;
+			right: 0;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- Home is index.html#close so the modal doesn't play -->
+<div id = "navbar">
+	<ul>
+		<a href="../index.html#close"><li>Home</li></a>
+		<a href="history.html"><li>About Me</li></a>
+		<a href="shows.html"><li>Upcoming Shows</li></a>
+		<a href="classes.html"><li>Classes</li></a>
+		<a href="the-boss.html"><li>The Legend of Serena Wilson</li></a>
+		<a href="costuming.html"><li>Costuming for Sale</li></a>
+		<a href="contact.html"><li>Contact Me</li></a>
+	</ul>
+</div>
+
+
+<div class="container">
+	<div id="heading">
+		<img src="../images/transparent/transparent-carnival-of-stars.png">
+	</div>
+</div>
+
+
+<!-- holds links at the top -->
+<div id="links-container">
+<a href="#bras-and-belts"><h2>Bras and Belts</h2></a><a href="#skirts"><h2>Skirts</h2></a><a href="#wings"><h2>Wings</h2></a><a href="#beledi-dresses"><h2>Beledi Dresses</h2></a></div>
+
+<div id="ads-container">
+	
+	<!-- bras and belts for sale slideshow -->
+	<div class="advertisement" id="bras-and-belts">
+	<h2>Bras and Belts</h2>
+		<div class="content">
+		<h3 id="bra-title"></h3>
+			<button onclick="plusBraDivs()"> Next </button>
+			<p id="bra-caption"></p>
+			<p>Please <a href="contact.html">contact Layla</a> for pricing.</p>
+
+			<!-- back to top (#links-container)-->
+			<a href="#links-container"><img id="arrow" src="../images/arrow.png"></a>
+			
+		</div>
+
+		<div class="slideshow" id="bra-belt" >
+				<div class="slides bra" id="teal-bra"></div>
+				<div class="slides bra" id="purple-bra"></div>
+		</div>
+	</div>
+	
+	<!-- skirts for sale slideshow -->
+ 	<div class="advertisement" id="skirts">
+	<h2>Skirts</h2>
+		
+		<div class="content">
+		<h3 id="skirt-title"></h3>
+			<button onclick ="plusSkirtDivs()"> Next </button>
+			<p id="skirt-caption"></p>
+			<p>Please <a href="contact.html">contact Layla</a> for pricing.</p>
+
+			<!-- back to top (#links-container)-->
+			<a href="#links-container"><img id="arrow" src="../images/arrow.png"></a>
+			
+		</div>	
+		
+		<div class="slideshow" id="skirt-slides">
+
+				<div class="slides skirt" id="teal-skirt">div</div>
+				<div class="slides skirt" id="purple-skirt">div</div>
+				<div class="slides skirt" id="multi-skirt">div</div>
+				
+		</div>
+
+	</div>
+	
+	<!-- wings for sale slideshow -->
+	<div class="advertisement" id="wings">
+	<h2>Wings</h2>
+		<div class="content">
+		<h3 id="wing-title"></h3>
+			<button onclick="plusWingDivs()"> Next </button>
+			<p id="wing-caption"></p>
+			<p>Please <a href="contact.html">contact Layla</a> for pricing.</p>
+
+			<!-- back to top (#links-container)-->
+			<a href="#links-container"><img id="arrow" src="../images/arrow.png"></a>
+		</div>
+		
+		<div class="slideshow" id="wing-slides">
+
+				<div class="slides wings" id="gold"></div>
+				<div class="slides wings" id="white"></div>
+				
+		</div>
+	</div>
+
+	<!-- beledi dresses for sale slideshow -->
+	<div class="advertisement" id="beledi-dresses">
+	<h2>Beledi Dresses</h2>
+	<div class="content">
+		<h3 id="beledi-title"></h3>
+			<button onclick="plusDressDivs()">  Next </button>
+			<p id="beledi-caption"></p>
+			<p>Please <a href="contact.html">contact Layla</a> for pricing.</p>
+
+			<!-- back to top (#links-container)-->
+			<a href="#links-container"><img id="arrow" src="../images/arrow.png"></a>
+	</div>
+		<div class="slideshow" id="beledi-slides">
+      			<div class="slides beledi" id="black-dress"></div>
+				<div class="slides beledi" id="purple-dress"></div>
+		</div>
+	</div> 
+
+	<!-- <a href="#links-container"><img id="arrow" src="images/arrow.png"></a> -->
+
+</div>
+
+<script type="text/javascript" src="../scripts/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+// Arrays for content are declared here. The "____Title"s  are the headers for each item for sale. The "____Text" is the caption for each. 
+
+
+
+// teal, then purple
+var braTitle = ["Teal and Gold Bra and Belt Ensemble", "Purple Sateen Mermaid Skirt Ensemble"]
+
+var braText = ["Teal bra and belt ensemble, complete with teal tiara encrusted with rhinestones. Shoulder sleeves are embroidered with gold and are not detachable. Belt comes with layers of bright gold fringe. Skirt not included.", "Purple ensemble that comes with bra, skirt and elbow sleeves. Bra is a halter top with silver rhinestotes embroidered onto the straps. Skirt os one piece with a slit 3/4s up the left leg. Beading is silver and various shades of purple. Fabric provides stretch and the skirt is lined. "];
+// teal, purple, rampi
+var skirtTitle = ["Teal Ruffled Full Length Skirt","Purple Ruffled Full Length Skirt","Multi-Colored Full Length Circle Skirt"]
+
+var skirtText = ["Teal chiffon ruffled skirt. Ruffles are lined with silver sequis and have large silver sequins placed incrementally along the edges. ","Purple chiffon ruffled skirt. Ruffles are edged with purple sequins","Multi-colored full-circle satin skirt in purple, red, and black. Enough fabric to wrap around you twice over. "];
+//gold, then white
+var wingTitle = ["Gold Isis Wings","White Isis Wings with Iridescence"]
+
+var wingText = ["Gold polyester open back Isis wings. Wingspan of 6.5feet.", "White polyester 360 Isis wings with green and purple iridescence. Wingspan of 6.5 feet."];
+//black, then purple
+var dressTitle = ["Velour Black and Magenta Beledi Dress", "Vintage Purple Striped Beledi Dress"]
+
+var dressText = ["Velvet black beledi dress with silver beading and magenta appliques. Comes with gauntlets and tiara. ","Vintage! Stitched in the 80's! Purple beledi dress with lilac and darp purple vertical striping. Half-arm bell sleeves. Sequins are indigo and at least a half-inch in diameter. All edges are lined with sequins."];
+
+// ~~~~~~~~~~ slideshow code for bra-belt section ~~~~~~~~~~~~~~~~~
+
+
+// Which item is up right now
+var braDisplayed = document.getElementById("bra-belt").children[0];
+// <p> to insert _____Text
+var braDesc = document.getElementById("bra-caption");
+// array of slides so I can get index of which one is displayed currently
+//conversion of HTMLCollection to array from https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+var bSlides = Array.from(document.getElementById("bra-belt").children);
+//index of item displayed
+var braIndex = bSlides.indexOf(braDisplayed);
+//<h3> to insert _____Title
+var braTitleVar = document.getElementById("bra-title");
+
+
+showBraDivs();
+
+function plusBraDivs() {
+	braIndex++;
+	showBraDivs();
+}
+
+
+function showBraDivs(){
+
+	if (braIndex < 0) {
+		braIndex = bSlides.length - 1;
+	}
+
+	if (braIndex == bSlides.length) {
+		braIndex = 0
+	}
+
+	for (let i = 0; i < bSlides.length; i++){
+		bSlides[i].style.display="none";
+	}
+
+	// display all current info based on index
+		bSlides[braIndex].style.display = "block";
+		braDesc.innerHTML = braText[braIndex];
+		braTitleVar.innerHTML = braTitle[braIndex];
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~slideshow code for skirt section~~~~~~~~~~~~~~~~~~~~
+
+// Which item is up right now
+var skirtDisplayed = document.getElementById("skirt-slides").children[0];
+// array of slides so I can get index of which one is displayed currently
+var skirtDesc = document.getElementById("skirt-caption");
+// array of slides so I can get index of which one is displayed currently
+//conversion of HTMLCollection to array from https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+var sSlides = Array.from(document.getElementById("skirt-slides").children);
+//index of item displayed
+var skirtIndex = sSlides.indexOf(skirtDisplayed);
+//<h3> to insert _____Title
+var skirtTitleVar = document.getElementById("skirt-title");
+
+showSkirtDivs();
+
+function plusSkirtDivs() {
+	skirtIndex++;
+	showSkirtDivs();
+}
+
+function showSkirtDivs(){
+
+	if (skirtIndex < 0) {
+		skirtIndex = sSlides.length - 1;
+	}
+
+	if (skirtIndex == sSlides.length) {
+		skirtIndex = 0
+	}
+
+	for (let i = 0; i < sSlides.length; i++){
+		sSlides[i].style.display="none";
+	}
+
+	// display all current info based on index
+		sSlides[skirtIndex].style.display = "block";
+		skirtDesc.innerHTML = skirtText[skirtIndex];
+		skirtTitleVar.innerHTML = skirtTitle[skirtIndex];
+}
+
+// ~~~~~~~~~~~slideshow code for wing section~~~~~~~~~~~~~~~~~~~~~
+// Which item is up right now
+var wingDisplayed = document.getElementById("wing-slides").children[0];
+// array of slides so I can get index of which one is displayed currently
+var wingDesc = document.getElementById("wing-caption");
+// array of slides so I can get index of which one is displayed currently
+//conversion of HTMLCollection to array from https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+var wSlides = Array.from(document.getElementById("wing-slides").children);
+//index of item displayed
+var wingIndex = wSlides.indexOf(wingDisplayed);
+//<h3> to insert _____Title
+var wingTitleVar = document.getElementById("wing-title");
+
+showWingDivs();
+
+function plusWingDivs() {
+	wingIndex++;
+	showWingDivs();
+}
+
+function showWingDivs(){
+
+	if (wingIndex < 0) {
+		wingIndex = wSlides.length - 1;
+	}
+
+	if (wingIndex == wSlides.length) {
+		wingIndex = 0
+	}
+
+	for (let i = 0; i < wSlides.length; i++){
+		wSlides[i].style.display="none";
+	}
+
+	// display all current info based on index
+		wSlides[wingIndex].style.display = "block";
+		wingDesc.innerHTML = wingText[wingIndex];
+		wingTitleVar.innerHTML = wingTitle[wingIndex];
+}
+
+// ~~~~~~~~~~~~~~~~~~~slideshow code for beledi section ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Which item is up right now
+var dressDisplayed = document.getElementById("beledi-slides").children[0];
+// array of slides so I can get index of which one is displayed currently
+var dressDesc = document.getElementById("beledi-caption");
+// array of slides so I can get index of which one is displayed currently
+//conversion of HTMLCollection to array from https://stackoverflow.com/questions/222841/most-efficient-way-to-convert-an-htmlcollection-to-an-array
+var dSlides = Array.from(document.getElementById("beledi-slides").children);
+//index of item displayed
+var dressIndex = dSlides.indexOf(dressDisplayed);
+//<h3> to insert _____Title
+var dressTitleVar = document.getElementById("beledi-title");
+
+showDressDivs();
+
+function plusDressDivs() {
+	dressIndex++;
+	showDressDivs();
+}
+
+function showDressDivs(){
+
+	if (dressIndex < 0) {
+		dressIndex = dSlides.length - 1;
+	}
+
+	if (dressIndex == dSlides.length) {
+		dressIndex = 0
+	}
+
+	for (let i = 0; i < dSlides.length; i++){
+		dSlides[i].style.display="none";
+	}
+	// display all current info based on index
+		dSlides[dressIndex].style.display = "block";
+		dressDesc.innerHTML = dressText[dressIndex];
+		dressTitleVar.innerHTML = dressTitle[dressIndex];
+}
+
+//adapted from https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click
+//adapted from https://stackoverflow.com/questions/30716616/how-can-i-subtract-pixels-from-offset-value
+
+	$(document).ready(function(){
+		$("h2").click(function(){	
+			var linked = $(this).parent().attr("href");
+			var off = $(linked).offset();
+			$('html,body').animate({
+				scrollTop: off.top - 90}, 'slow');
+			
+		});
+	});
+</script>
+</body>
+</html>
